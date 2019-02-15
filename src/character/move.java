@@ -2,12 +2,11 @@ package character;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Graphics;
-
 import java.awt.Image;
-import javax.swing.ImageIcon;
 
+import javax.swing.*;
 
-public class move extends KeyAdapter {
+public class move {
 	Image character = new ImageIcon(getClass().getResource("../Image/circle.png")).getImage();
 	
 	int x, y;
@@ -17,19 +16,21 @@ public class move extends KeyAdapter {
 		g.drawImage(character, x, y, null);
 	}
 	
-	public void keyPressed(KeyEvent e) {
-		int key = e.getKeyCode();
+	class keyEvent extends KeyAdapter {
+		public void keyPressed(KeyEvent e) {
+			int key = e.getKeyCode();
 
-		switch (key) {
-		case KeyEvent.VK_LEFT:
-			x = x - 10;
-			System.out.println("right Click");
-			break;
+			switch (key) {
+			case KeyEvent.VK_LEFT:
+				x = x - 10;
+				System.out.println("right Click");
+				break;
 
-		case KeyEvent.VK_RIGHT:
-			y = y + 10;
-			System.out.println("left Click");
-			break;
+			case KeyEvent.VK_RIGHT:
+				y = y + 10;
+				System.out.println("left Click");
+				break;
+			}
 		}
 	}
 	
