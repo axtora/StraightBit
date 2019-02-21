@@ -1,40 +1,27 @@
 package character;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.Graphics;
-import java.awt.Image;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class move {
-	Image character = new ImageIcon(getClass().getResource("../Image/circle.png")).getImage();
+public class move extends JFrame implements KeyListener {
 	
-	int x, y;
-	
-	public void moving(Graphics g) {
-		System.out.println("moving method in");
-		g.drawImage(character, x, y, null);
+	int x = 0, y = 0;
+		
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int keyCode = e.getKeyCode();
+		
+		if (keyCode == e.VK_RIGHT) {
+			y += 10;
+		}else if (keyCode == e.VK_LEFT) {
+			x -= 10;
+		}		
 	}
-	
-	class keyEvent extends KeyAdapter {
-		public void keyPressed(KeyEvent e) {
-			int key = e.getKeyCode();
 
-			switch (key) {
-			case KeyEvent.VK_LEFT:
-				x = x - 10;
-				System.out.println("right Click");
-				break;
+	@Override
+	public void keyReleased(KeyEvent e) {} //추 후 추가 예정
 
-			case KeyEvent.VK_RIGHT:
-				y = y + 10;
-				System.out.println("left Click");
-				break;
-			}
-		}
-	}
-	
-	public static void main(String[] args) {
-		System.out.println("move.java in");
-	}
+	@Override
+	public void keyTyped(KeyEvent e) {} //추 후 추가 예정
 }

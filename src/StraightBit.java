@@ -21,10 +21,7 @@ public class StraightBit extends JFrame {
 	public StraightBit() {
 		setSize(index.SCREEN_WIDTH,index.SCREEN_HEIGHT);
 		setTitle("StraightBit");
-		
-		move mv = new move();
 	
-		
 		Color bg = new Color(75, 75, 75);
 		
 		setResizable(false);
@@ -43,7 +40,7 @@ public class StraightBit extends JFrame {
 			charY ++;
 			try {
 				th.sleep(10);
-				System.out.println(charY);
+//				System.out.println(charY);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -57,12 +54,13 @@ public class StraightBit extends JFrame {
 	public void paint(Graphics g) {
 		screen = createImage(1280,720);			//가로 * 세로 크기의 이미지 생성(도화지)
 		screen_image = screen.getGraphics();  //이미지의 그래픽을 얻어옴
+		move keyEvent = new move();
+		addKeyListener(keyEvent);
 		screenDraw(screen_image);			
 		g.drawImage(screen, 0, 0, null);
 	}
 	
 	public void screenDraw(Graphics g) {
-		
 		g.drawImage(character_circle, 0, charY, null);	//얻어온 그래픽을 화면에 출력
 		this.repaint();			//paint 반복
 	}
